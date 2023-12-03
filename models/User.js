@@ -26,6 +26,10 @@ const usersSchema=new mongoose.Schema({
         type:String,
         enum:["User","Author"],
         required:true
+    },
+    comment:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Comment"
     }
 })
 
