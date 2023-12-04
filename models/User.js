@@ -10,7 +10,8 @@ const usersSchema=new mongoose.Schema({
     },
     email:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     password:{
         type:String,
@@ -30,8 +31,14 @@ const usersSchema=new mongoose.Schema({
     comment:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Comment"
-    }
+    },
+    blogs:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Blog"
+    }]
 })
+
+
 
 //create users model via mongoose
 module.exports=mongoose.model("User",usersSchema);
